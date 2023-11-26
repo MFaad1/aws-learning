@@ -12,12 +12,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Deploy to AWS Lambda
-        uses: softprops/action-aws-lambda@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          AWS_ACCESS_KEY_ID: AKIAU3PM3TU5MBZ5C3UR
-          AWS_SECRET_ACCESS_KEY: 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
-          AWS_REGION: 'us-east-1'
-          FUNCTION_NAME: 'myFirstlamba'
-          HANDLER: './app.js'
-          ZIP: '.'  
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'us-east-1'  # Replace with your AWS region
+
+      - name: Deploy to AWS Lambda
+        run: |
+          aws lambda create-function \
+            --function-name myFirstlamba \
+            --handler app.handler \
+            --runtime nodejs12.x \
+            --role arn:aws:iam::123456789012:role/your-role \
+            --zip-file fileb://.
