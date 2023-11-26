@@ -15,8 +15,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: AKIAU3PM3TU5MBZ5C3UR
+          AWS_SECRET_ACCESS_KEY: hFB+kOjNwyFBTomdhX9HfG+nR9dUBXhng3ZXAjdY
           aws-region: 'us-east-1'  # Replace with your AWS region
 
       - name: Deploy to AWS Lambda
