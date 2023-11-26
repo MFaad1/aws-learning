@@ -15,8 +15,8 @@ jobs:
       - name: Deploy to AWS Lambda
         uses: softprops/action-aws-lambda@v2
         with:
-          AWS_ACCESS_KEY_ID: ${{ AWS_access_key }}
-          AWS_SECRET_ACCESS_KEY: ${{ AWS_secret_key }}
+          AWS_ACCESS_KEY_ID: AKIAU3PM3TU5MBZ5C3UR
+          AWS_SECRET_ACCESS_KEY: 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
           AWS_REGION: 'us-east-1'
           FUNCTION_NAME: 'myFirstlamba'
           HANDLER: './app.js'
